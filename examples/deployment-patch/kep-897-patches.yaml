@@ -1,0 +1,11 @@
+apiVersion: sourceability.com/v1
+kind: Kep897Patch
+metadata:
+  name: kep-897-patch
+patches:
+  - path: patch-deployment-node-selector.yaml
+    target:
+      group: apps
+      version: v1
+      kind: Deployment
+    type: StrategicMergePatch
