@@ -4,8 +4,6 @@ go:
   - '1.12'
 
 script:
-  - export GO111MODULE=on CGO_ENABLED=1
-  - go get
+  - export GO111MODULE=on CGO_ENABLED=1 GOROOT=$(go env GOROOT)
   - mkdir -p $HOME/.config/kustomize && ln -s $PWD/plugin $HOME/.config/kustomize/
-  - cd plugin/sourceability.com/v1/kep897patch/
-  - GOROOT=$(go env GOROOT) go test -v Kep897Patch_test.go
+  - go test -v plugin/sourceability.com/v1/kep897patch/Kep897Patch_test.go
